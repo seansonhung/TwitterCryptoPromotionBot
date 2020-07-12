@@ -3,10 +3,9 @@ import time
 import random
 from config import create_api
 
-
 def main():
   api = create_api()
-  
+
   saved_tweets = [
     "Patiently waiting for MCO card in Canada. \n Reserve and get $50 if you haven't",
     "How is your crypto profolio doing today? All I have is #CRO and #MCO.",
@@ -117,7 +116,6 @@ def main():
     # get the previous 75 tweets
     previous_tweets_objects = api.user_timeline(screen_name='@SEAN_CRO_FANBOY', count = 50, include_rts = True, tweet_mode="extended")
     previous_tweets = [[tweet.full_text.replace('\n','').replace('\n\n https://platinum.crypto.com/r/t8rqb2fyu2','')] for tweet in previous_tweets_objects]
-    print(previous_tweets)
     # choose a tweet that is not duplicate of previous 75 tweets
     tweet = ""
     tweet_chosen = False
@@ -137,7 +135,8 @@ def main():
     #make exception for duplicate tweets
       if (error.api_code != 187):
         raise error
-    # only post once every 2h (7200 s)
-    time.sleep(7200)
+    # only post once every 2h-4h (7200 s to 14800)
+    # to make the posting time seem more random
+    time.sleep(random.choice([7200, 14800]))
 
 if  __name__ =='__main__':main()
