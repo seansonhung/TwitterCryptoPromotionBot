@@ -27,7 +27,7 @@ Steps to deploy:
   
 
 4: Upload image
-  - scp -i ["pem file downloaded whencreating EC2 instanced"] twitter_bot.tar.gz ubuntu@ec2-3-86-66-73.compute-1.amazonaws.com:/tmp
+  - scp -i "pem file downloaded whencreating EC2 instanced" twitter_bot.tar.gz ubuntu@ec2-3-86-66-73.compute-1.amazonaws.com:/tmp
   (ubuntu@ec2-3-86-66-73.compute-1.amazonaws.com based on base image chosen when creating EC2 instance)
   - login to EC2 instance on local computer
   - gunzip /tmp/twitter_bot.tar.gz
